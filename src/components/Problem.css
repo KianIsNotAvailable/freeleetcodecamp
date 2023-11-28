@@ -1,0 +1,97 @@
+*{
+    text-shadow: none!important;
+    box-sizing: border-box;
+}
+.collapsed-div{
+    background-color: #1b1b32;
+}
+.block-ui{
+    color: white;
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    width: 750px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: left;
+}
+.block-ui .block .block-description{
+    border-bottom: 3px solid #1b1b32;
+    padding: 0 15px 15px;
+}
+.block-ui .block{
+background-color: #0a0a23;
+}
+.block{
+    display: block;
+    padding: 10px;
+}
+.block-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+}
+.block-header .big-block-title{
+    padding: 25px 15px 10px;
+}
+.big-block-title{
+    font-size: 1.5rem;
+    overflow-wrap: break-word;
+}
+.block-description{
+font-size: 1.17rem;
+line-height: 1.5rem;
+}
+h3{
+    font-weight: 700;
+    margin: 0 0 0.6rem;
+}
+button.map-title{
+cursor: pointer;
+padding: 18px 15px;
+}
+.map-title{
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: start;
+    
+}
+.course-title{
+    align-items: center;
+    font-size: 1.13rem;
+    overflow-wrap: break-word;
+}
+.map-title:hover{
+    background-color: #1b1b32;
+}
+.lessons-completed{
+    min-width: 100px;
+    padding-inline-start: 20px;
+    margin-inline-start: auto;
+}
+.map-challenges{
+    margin-bottom: 0;
+    padding-inline-start: 0;
+    cursor: pointer;
+}
+.challenge-title:hover{
+    background-color: #1b1b32;
+}
+.challenge-title, .challenge-title a{
+    align-items: center;
+    width: 100%;
+}
+.challenge-title{
+    align-items: center;
+    font-size: 1.13rem;
+    display: flex;
+    width: 100%;
+}
+.challenge-title a{
+    padding: 10px 15px;
+}

@@ -1,5 +1,11 @@
+
+
 .App {
   text-align: center;
+  background-color: #1b1b32;
+  color: white;
+  height: 100%;
+  font-family: "Hack-ZeroSlash", monospace;
 }
 
 .App-logo {
