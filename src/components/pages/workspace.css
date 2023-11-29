@@ -1,0 +1,24 @@
+.split {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.gutter {
+    background-color: #0a0a23 !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    width: 10px !important;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize !important;
+    background-color: #0a0a23 !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% center !important; 
+    width: 10px !important; 
+}
+
+.gutter:hover{
+    background-color: #0a84ff !important;
+}

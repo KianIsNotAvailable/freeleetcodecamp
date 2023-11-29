@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Problem.css'
+import {Link} from 'react-router-dom'
 export default function Problems() {
 
 const [expand, setExpand] = useState(false)
@@ -37,11 +38,11 @@ function clickHandler(){
             </button>
             { expand ? <div></div> :
             <ul className='map-challenges'>
-                <li className='challenge-title'><a><span>Introduction</span></a></li>
-                <li className='challenge-title'><a><span>Loops in Python</span></a></li>
-                <li className='challenge-title'><a><span>The Enumerate() Function</span></a></li>
-                <li className='challenge-title'><a><span>Creating a HashMap</span></a></li>
-                <li className='challenge-title'><a><span>think of more challenges</span></a></li>
+                <li className='challenge-title'><Link to="introduction"><span>Introduction</span></Link></li>
+                <li className='challenge-title'><Link to="/loops"><span>Loops in Python</span></Link></li>
+                <li className='challenge-title'><Link><span>The Enumerate() Function</span></Link></li>
+                <li className='challenge-title'><Link><span>Creating a HashMap</span></Link></li>
+                <li className='challenge-title'><Link><span>think of more challenges</span></Link></li>
             </ul>}
         </div>
     </div>
