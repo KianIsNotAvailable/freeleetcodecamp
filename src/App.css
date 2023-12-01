@@ -18,7 +18,13 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+code{
+  background-color: #0a0a23;
+  border-radius: 0;
+  color: white;
+  overflow-wrap: anywhere;
+  padding: 1px 4px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

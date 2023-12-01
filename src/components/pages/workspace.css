@@ -1,24 +1,32 @@
 .split {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex ;
+    flex-direction: row ;
 }
 
 .gutter {
-    background-color: #0a0a23 !important;
-    background-repeat: no-repeat !important;
-    background-position: 50% !important;
-    width: 10px !important;
+    background-color: #0a0a23 ;
+    background-repeat: no-repeat ;
+    background-position: 50% ;
+    width: 10px ;
 }
 
 .gutter.gutter-horizontal {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
-    cursor: col-resize !important;
-    background-color: #0a0a23 !important;
-    background-repeat: no-repeat !important;
-    background-position: 50% center !important; 
-    width: 10px !important; 
+    cursor: col-resize ;
+    background-color: #0a0a23 ;
+    background-repeat: no-repeat ;
+    background-position: 50% center ; 
+    width: 10px ; 
 }
 
+.cm-focused{
+    outline: none !important;
+}
 .gutter:hover{
-    background-color: #0a84ff !important;
+    background-color: rgb(209 213 219) ;
+}
+.gutter.gutter-vertical {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+    cursor: row-resize;
+    width: 100%;
 }

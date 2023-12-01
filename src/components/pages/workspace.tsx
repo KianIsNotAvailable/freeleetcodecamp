@@ -2,17 +2,18 @@ import React from "react";
 import Split from "react-split"
 import ProblemDescription from "./ProblemDescription.tsx";
 import './workspace.css'
+import Code from './code.tsx'
 type WorkspaceProps = {};
 
 const Workspace: React.FC<WorkspaceProps> = () => {
     return (
         
-        
-        <Split className="Split flex flex-row">
+        //this flex flex-row is what fixed it when the gutter wouldnt show
+        <Split className="Split flex flex-row"> 
             
             
             <ProblemDescription/>
-            <div>The Code Editor will be here </div>
+            <Code/>
             
 
         </Split> 
