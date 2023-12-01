@@ -1,19 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Split from "react-split";
 import CodeMirror from '@uiw/react-codemirror';
 import {vscodeDark} from '@uiw/codemirror-theme-vscode';
 import { python } from '@codemirror/lang-python'
+import challengeAnswers from "../../object";
+import './code.css';
+import axios from 'axios';
+
 type CodeProps = {};
 
 const Code: React.FC<CodeProps> = () => {
+    const [result, setResult] = useState<any>(null);
+    const [userCode, setUserCode] = useState<string>('')
+
+useEffect(() => {
+    const handleSubmit = async () => {
+        const apiKey = '7f2524c78emsh54262dc1f40ff6ep16878cjsn67460377ec0a';
+        const url = 'https://run.judge0.com/api/runs';
+
+        const payload = {
+            source_code: userCode,
+            language_id: 71, // Python
+
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-API-KEY': apiKey,
+        };
+
+        try {
+            const response = await axios.post(url, payload, { headers });
+            setResult(response.data);
+
+        } catch (error) {
+            console.error('Error running the code:', error);
+        }
+    };
+    
+}, [])
+
+
+
+
+
+
+
+const onChange = (value: string) => {
+    console.log(value);
+    setUserCode(value);
+};
+
+
+
     return (
         <Split className="h-[calc(100vh-94px)]" direction="vertical" sizes={[60, 40]} minSize={60}>
-            <div className="w-full overflow-auto">
-                <CodeMirror
-                value="for n in nums;"
+            <div className="code-editor w-full overflow-auto">
+                <CodeMirror className="w-full overflow-auto"
+                value={challengeAnswers[2].boilerPlate} //make it so it auto sets it for whatever question youre on
                 theme={vscodeDark}
+                onChange={onChange}
                 extensions={[python()]}
-                style={{fontSize: 16}}
+                style={{fontSize: 16, textAlign: "left"}}
                 />
             </div>
             <div className="w-full px-5 overflow-auto">
@@ -35,6 +82,7 @@ const Code: React.FC<CodeProps> = () => {
                     </div>
                 </div>
                 </div>
+                
                 </div>
         </Split>
     )
