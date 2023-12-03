@@ -14,6 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Learn/>} />
         <Route path="/loops" element={<Workspace/>} />
+        <Route path="/introduction" element={<Workspace/>} />
+        <Route path="/enumerate" element={<Workspace/>} />
       </Routes>
       
       </Router>

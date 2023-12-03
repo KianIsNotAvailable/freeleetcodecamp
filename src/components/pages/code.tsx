@@ -3,7 +3,7 @@ import Split from "react-split";
 import CodeMirror from '@uiw/react-codemirror';
 import {vscodeDark} from '@uiw/codemirror-theme-vscode';
 import { python } from '@codemirror/lang-python'
-import challengeAnswers from "../../object";
+import challengeAnswers from "../../object.jsx";
 import './code.css';
 import axios from 'axios';
 
@@ -11,9 +11,10 @@ type CodeProps = {};
 
 const Code: React.FC<CodeProps> = () => {
     const [result, setResult] = useState<any>(null);
-    const [userCode, setUserCode] = useState<string>('')
+    const [userCode, setUserCode] = useState<string>('');
+    const [sendRequest, setSendRequest] = useState(false);
+   
 
-useEffect(() => {
     const handleSubmit = async () => {
         const apiKey = '7f2524c78emsh54262dc1f40ff6ep16878cjsn67460377ec0a';
         const url = 'https://run.judge0.com/api/runs';
@@ -31,13 +32,19 @@ useEffect(() => {
         try {
             const response = await axios.post(url, payload, { headers });
             setResult(response.data);
+            setSendRequest(false);
+            alert('this worked')
+            console.log('click')
 
         } catch (error) {
             console.error('Error running the code:', error);
+            setSendRequest(false);
+            alert('this worked')
         }
+        
     };
-    
-}, [])
+     
+
 
 
 
@@ -82,7 +89,7 @@ const onChange = (value: string) => {
                     </div>
                 </div>
                 </div>
-                
+                <button onClick={handleSubmit} className='run-btn bg-[#282c34] border border-gray-300 w-full hover:bg-gray-300 hover:text-black p-2'>Run the Code!</button>
                 </div>
         </Split>
     )

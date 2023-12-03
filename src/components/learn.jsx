@@ -1,5 +1,5 @@
 import React from 'react'
-import Problems from './Problems'
+import Problems from './Problem.tsx'
 import './learn.css'
 export default function learn() {
   return (

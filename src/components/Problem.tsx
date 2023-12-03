@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import './Problem.css'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateButtonState } from '../actions';
+import { RootState } from '../types'
 export default function Problems() {
+    const dispatch = useDispatch();
+    const buttonState = useSelector((state: RootState) => state.buttonState);
+
 
 const [expand, setExpand] = useState(false)
 const [courseTitle, setCourseTitle] = useState('Expand Course')
@@ -38,11 +44,11 @@ function clickHandler(){
             </button>
             { expand ? <div></div> :
             <ul className='map-challenges'>
-                <li className='challenge-title'><Link to="introduction"><span>Introduction</span></Link></li>
-                <li className='challenge-title'><Link to="/loops"><span>Loops in Python</span></Link></li>
-                <li className='challenge-title'><Link><span>The Enumerate() Function</span></Link></li>
-                <li className='challenge-title'><Link><span>Creating a HashMap</span></Link></li>
-                <li className='challenge-title'><Link><span>think of more challenges</span></Link></li>
+                <li className='challenge-title' onClick={()=>{dispatch(updateButtonState(1))}}><Link to="introduction"><span>Introduction</span></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(2))}}><Link to="/loops"><span>Loops in Python</span></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(3))}}><Link to="/enumerate"><span>The Enumerate() Function</span></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(4))}}><Link to=""><span>Creating a HashMap</span></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(5))}}><Link to=""><span>think of more challenges</span></Link></li>
             </ul>}
         </div>
     </div>
