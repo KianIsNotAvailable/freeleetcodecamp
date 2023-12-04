@@ -2,3 +2,15 @@
     width: 100%;
     overflow: auto;
 }
+.cm-editor.cm-focused{
+    background-color: #1b1b32;
+}
+.cm-editor{
+    background-color: #1b1b32;
+}
+.cm-gutterElement{
+    background-color: #1b1b32;
+}
+.cm-gutter{
+    background-color: #1b1b32;
+}

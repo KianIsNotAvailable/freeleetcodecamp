@@ -6,6 +6,8 @@ import { python } from '@codemirror/lang-python'
 import challengeAnswers from "../../object.jsx";
 import './code.css';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../types'
 
 type CodeProps = {};
 
@@ -13,7 +15,7 @@ const Code: React.FC<CodeProps> = () => {
     const [result, setResult] = useState<any>(null);
     const [userCode, setUserCode] = useState<string>('');
     const [sendRequest, setSendRequest] = useState(false);
-   
+    const buttonState = useSelector((state: RootState) => state.buttonState);
 
     const handleSubmit = async () => {
         const apiKey = '7f2524c78emsh54262dc1f40ff6ep16878cjsn67460377ec0a';
@@ -63,7 +65,7 @@ const onChange = (value: string) => {
         <Split className="h-[calc(100vh-94px)]" direction="vertical" sizes={[60, 40]} minSize={60}>
             <div className="code-editor w-full overflow-auto">
                 <CodeMirror className="w-full overflow-auto"
-                value={challengeAnswers[2].boilerPlate} //make it so it auto sets it for whatever question youre on
+                value={challengeAnswers[buttonState].boilerPlate} //make it so it auto sets it for whatever question youre on
                 theme={vscodeDark}
                 onChange={onChange}
                 extensions={[python()]}
