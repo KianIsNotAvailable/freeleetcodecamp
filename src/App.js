@@ -4,13 +4,16 @@ import Learn from './components/learn'
 import Header from './components/Header';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Loops from './components/pages/loops'
-import Workspace from './components/pages/workspace.tsx'
+import Workspace from './components/pages/workspace.tsx';
+import Popup from './components/popup.jsx';
 
 function App() {
+ 
   return (
     <div className="App">
       <Router>
       <Header className='header'/>
+    <Popup><h1>hello</h1></Popup>
       <Routes>
         <Route path="/" element={<Learn/>} />
         <Route path="/loops" element={<Workspace/>} />

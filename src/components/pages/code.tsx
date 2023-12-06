@@ -7,7 +7,9 @@ import challengeAnswers from "../../object.jsx";
 import './code.css';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../types'
+import { RootState } from '../../types';
+import {setPopupVisible} from '../../popupActions.js'
+import { usePopup } from '../popupContext.js';
 
 type CodeProps = {};
 
@@ -16,7 +18,7 @@ const Code: React.FC<CodeProps> = () => {
     const [userCode, setUserCode] = useState<string>('');
     const [sendRequest, setSendRequest] = useState(false);
     const buttonState = useSelector((state: RootState) => state.buttonState);
-
+    const { openPopup } = usePopup();
     const handleSubmit = async () => {
         const apiKey = '7f2524c78emsh54262dc1f40ff6ep16878cjsn67460377ec0a';
         const url = 'https://run.judge0.com/api/runs';
@@ -35,13 +37,15 @@ const Code: React.FC<CodeProps> = () => {
             const response = await axios.post(url, payload, { headers });
             setResult(response.data);
             setSendRequest(false);
-            alert('this worked')
-            console.log('click')
-
+            alert('this worked');
+            console.log('click');
+            openPopup();
+            
         } catch (error) {
             console.error('Error running the code:', error);
             setSendRequest(false);
-            alert('this worked')
+            alert('worked but error');
+            openPopup();
         }
         
     };
@@ -72,6 +76,7 @@ const onChange = (value: string) => {
                 style={{fontSize: 16, textAlign: "left"}}
                 />
             </div>
+            
             <div className="w-full px-5 overflow-auto">
                 {/* test case heading */}
                 <div className="flex h-10 items-center space-x-6">

@@ -5,13 +5,16 @@ import store from './redux'; // Import your Redux store
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PopupProvider } from './components/popupContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <PopupProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </PopupProvider>
   </Provider>
 );
 

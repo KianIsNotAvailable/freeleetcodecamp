@@ -2,7 +2,8 @@ import React from "react";
 import Split from "react-split"
 import ProblemDescription from "./ProblemDescription.tsx";
 import './workspace.css'
-import Code from './code.tsx'
+import Code from './code.tsx';
+
 type WorkspaceProps = {};
 
 const Workspace: React.FC<WorkspaceProps> = () => {
