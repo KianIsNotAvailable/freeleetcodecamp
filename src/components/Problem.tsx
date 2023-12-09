@@ -4,22 +4,26 @@ import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateButtonState } from '../actions';
 import { RootState } from '../types'
+import Checkmark from '../assets/checkmark.png'
+import { useChallenge } from './challengeContext';
 export default function Problems() {
     const dispatch = useDispatch();
     const buttonState = useSelector((state: RootState) => state.buttonState);
+    const { introductionComplete, loopsComplete, enumerateComplete, hashmapsComplete } = useChallenge();
 
-
-const [expand, setExpand] = useState(false)
-const [courseTitle, setCourseTitle] = useState('Expand Course')
+const [expand, setExpand] = useState(false);
+const [courseTitle, setCourseTitle] = useState('Expand Course');
+const [completed, setCompleted] = useState(0);
 function clickHandler(){
     if (!expand){
         setExpand(true)
-        setCourseTitle('Expand Course')
+        setCourseTitle('Collapse Course')
     } else {
         setExpand(false)
-        setCourseTitle('Collapse Course')
+        setCourseTitle('Expand Course')
     }
 }
+
 
 
 
@@ -39,16 +43,16 @@ function clickHandler(){
                 {courseTitle}
                 </div>
                 <div className='lessons-completed'>
-                        0/5
+                        {completed}/5
                 </div>
             </button>
-            { expand ? <div></div> :
+            { !expand ? <div></div> :
             <ul className='map-challenges'>
-                <li className='challenge-title' onClick={()=>{dispatch(updateButtonState(1))}}><Link to="introduction"><span>Introduction</span></Link></li>
-                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(2))}}><Link to="/loops"><span>Loops in Python</span></Link></li>
-                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(3))}}><Link to="/enumerate"><span>The Enumerate() Function</span></Link></li>
-                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(4))}}><Link to=""><span>Creating a HashMap</span></Link></li>
-                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(5))}}><Link to=""><span>think of more challenges</span></Link></li>
+                <li className='challenge-title' onClick={()=>{dispatch(updateButtonState(1))}}><Link to="introduction"><div className='flex flex-row'>{introductionComplete && <img className='h-4' src={Checkmark}/>}<span>Introduction</span></div></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(2))}}><Link to="/loops"><div className='flex flex-row'>{loopsComplete && <img className='h-4' src={Checkmark}/>}<span>Loops in Python</span></div></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(3))}}><Link to="/enumerate"><div className='flex flex-row'>{enumerateComplete && <img className='h-4' src={Checkmark}/>}<span>The enumerate() Function</span></div></Link></li>
+                <li className='challenge-title'onClick={()=>{dispatch(updateButtonState(4))}}><Link to="/hashmap"><div className='flex flex-row'>{hashmapsComplete && <img className='h-4' src={Checkmark}/>}<span>Hashmaps</span></div></Link></li>
+                
             </ul>}
         </div>
     </div>

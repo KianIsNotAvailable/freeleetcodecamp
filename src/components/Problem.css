@@ -1,13 +1,14 @@
 *{
     text-shadow: none!important;
     box-sizing: border-box;
+    
 }
 .collapsed-div{
     background-color: #1b1b32;
 }
 .block-ui{
     color: white;
-    height: 100%;
+    
     list-style: none;
     padding: 0;
     width: 750px;
@@ -15,6 +16,7 @@
     align-items: center;
     margin: auto;
     text-align: left;
+    
 }
 .block-ui .block .block-description{
     border-bottom: 3px solid #1b1b32;

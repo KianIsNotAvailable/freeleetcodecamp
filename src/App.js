@@ -3,9 +3,9 @@ import './App.css';
 import Learn from './components/learn'
 import Header from './components/Header';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Loops from './components/pages/loops'
+
 import Workspace from './components/pages/workspace.tsx';
-import Popup from './components/popup.jsx';
+import Popup from './components/popup.tsx';
 
 function App() {
  
@@ -19,6 +19,7 @@ function App() {
         <Route path="/loops" element={<Workspace/>} />
         <Route path="/introduction" element={<Workspace/>} />
         <Route path="/enumerate" element={<Workspace/>} />
+        <Route path="/hashmap" element={<Workspace/>} />
       </Routes>
       
       </Router>

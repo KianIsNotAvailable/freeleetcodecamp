@@ -48,6 +48,14 @@ const challengeAnswers = {
             <p>In this example, enumerate() allows us to iterate over the fruits list while simultaneously obtaining both the index and the corresponding fruit. The enumerate() function is often used in situations where you need to keep track of the position of elements in an iterable during iteration.</p>
         </div>
     },
+    4: {
+        name: 'hashmap',
+        boilerPlate: 'nums = [5, 80, 4, 43] \nhashmap = {} \nfor i, n in enumerate(nums): \nhashmap[i] = n \n#Write your code here\n' ,
+        answer: '',
+        description: <div>
+            
+        </div>
+    },
 }
 
 export default challengeAnswers;
