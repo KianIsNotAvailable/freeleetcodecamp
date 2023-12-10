@@ -14,22 +14,26 @@
   
   .popup-content {
     background: #0a0a23;
-    padding: 20px;
+    
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 1000; /* Set a higher z-index value than the overlay */
     width: 100%;
     max-width: 640px;
+    
   }
   
-.popup-content  .close-btn{
-    top: 0px;
-    right: 16px;
-    align-items: right;
+.popup-content .close-btn{
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    justify-content: right;
+    
 
 }
 .popup-header{
     border: 1px solid white;
+    
 }
 .popup-body{
     border: 1px solid white;

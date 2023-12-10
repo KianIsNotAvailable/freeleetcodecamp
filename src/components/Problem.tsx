@@ -6,14 +6,16 @@ import { updateButtonState } from '../actions';
 import { RootState } from '../types'
 import Checkmark from '../assets/checkmark.png'
 import { useChallenge } from './challengeContext';
+import { useCompleted } from './completedContext';
 export default function Problems() {
     const dispatch = useDispatch();
     const buttonState = useSelector((state: RootState) => state.buttonState);
     const { introductionComplete, loopsComplete, enumerateComplete, hashmapsComplete } = useChallenge();
-
+    const checkedArray = [introductionComplete, loopsComplete, enumerateComplete, hashmapsComplete];
+    const trueChecked = checkedArray.filter(state => state === true);
 const [expand, setExpand] = useState(false);
 const [courseTitle, setCourseTitle] = useState('Expand Course');
-const [completed, setCompleted] = useState(0);
+const {setCompleted} = useCompleted();
 function clickHandler(){
     if (!expand){
         setExpand(true)
@@ -26,7 +28,7 @@ function clickHandler(){
 
 
 
-
+setCompleted(trueChecked.length)
   return (
     <div className='block-ui '>
         <div className='block'>
@@ -43,7 +45,7 @@ function clickHandler(){
                 {courseTitle}
                 </div>
                 <div className='lessons-completed'>
-                        {completed}/5
+                        {trueChecked.length}/4
                 </div>
             </button>
             { !expand ? <div></div> :

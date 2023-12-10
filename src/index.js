@@ -7,10 +7,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { PopupProvider } from './components/popupContext';
 import { ChallengeProvider } from './components/challengeContext';
-
+import { CompletedProvider } from './components/completedContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
+    <CompletedProvider>
     <ChallengeProvider>
     <PopupProvider>
       <React.StrictMode>
@@ -18,6 +19,7 @@ root.render(
       </React.StrictMode>
     </PopupProvider>
     </ChallengeProvider>
+    </CompletedProvider>
   </Provider>
 );
 

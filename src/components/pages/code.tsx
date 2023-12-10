@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Split from "react-split";
 import CodeMirror from '@uiw/react-codemirror';
 import {vscodeDark} from '@uiw/codemirror-theme-vscode';
@@ -10,49 +10,24 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../types';
 import OutputWindow from "./outputWindow.jsx";
 import { usePopup } from '../popupContext.js';
-import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import OutputDetails from "./outputDetails.jsx";
 
 type CodeProps = {};
 
 const Code: React.FC<CodeProps> = () => {
-    const [result, setResult] = useState<any>(null);
+
     const [userCode, setUserCode] = useState<string>('');
-    const [sendRequest, setSendRequest] = useState(false);
+    
     const [processing, setProcessing] = useState<null | boolean>(null)
 const [outputDetails, setOutputDetails] = useState(null)
     const buttonState = useSelector((state: RootState) => state.buttonState);
     const { openPopup } = usePopup();
-    // const handleSubmit = async () => {
-    //     const apiKey = '7f2524c78emsh54262dc1f40ff6ep16878cjsn67460377ec0a';
-    //     const url = 'https://run.judge0.com/api/runs';
-
-    //     const payload = {
-    //         source_code: userCode,
-    //         language_id: 71, // Python
-
-    //     };
-    //     const headers = {
-    //         'Content-Type': 'application/json',
-    //         'X-API-KEY': apiKey,
-    //     };
-
-    //     try {
-    //         const response = await axios.post(url, payload, { headers });
-    //         setResult(response.data);
-    //         setSendRequest(false);
-    //         console.log('click');
-    //         openPopup();
-            
-    //     } catch (error) {
-    //         console.error('Error running the code:', error);
-    //         setSendRequest(false);
-    //         openPopup();
-    //     }
-        
-    // };
-     
+    
     const handleSubmit = () => {
+      if (buttonState === 1){
+        openPopup()
+      } else {
         setProcessing(true);
         const formData = {
           language_id: 71,
@@ -84,7 +59,7 @@ const [outputDetails, setOutputDetails] = useState(null)
             let error = err.response ? err.response.data : err;
             setProcessing(false);
             console.log(error);
-          });
+          });}
       };
       const checkStatus = async (token: string) => {
         const options = {
@@ -112,7 +87,9 @@ const [outputDetails, setOutputDetails] = useState(null)
             setOutputDetails(response.data)
             //showSuccessToast(`Compiled Successfully!`)
             console.log('response.data', response.data)
-            openPopup();
+            if (response.data?.status.description === "Accepted" && userCode.includes(challengeAnswers[buttonState].answer)){
+              openPopup();
+            }
             return
           }
         } catch (err) {
@@ -133,28 +110,6 @@ const onChange = (value: string) => {
     setUserCode(value);
 };
 
-// const showSuccessToast = (msg: string) => {
-//     toast.success(msg || `Compiled Successfully!`, {
-//       position: "top-right",
-//       autoClose: 1000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//     });
-//   };
-//   const showErrorToast = (msg: any) => {
-//     toast.error(msg || `Something went wrong! Please try again.`, {
-//       position: "top-right",
-//       autoClose: 1000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//     });
-//   };
 
 
     return (
@@ -172,10 +127,13 @@ const onChange = (value: string) => {
                 />
             </div>
             
-            <div className="w-full px-5 overflow-auto">
+            <div className="w-full px-5 overflow-auto py-3">
             <button onClick={handleSubmit} className='run-btn bg-[#282c34] border border-gray-300 w-full hover:bg-gray-300 hover:text-black p-2'>Run the Code!</button>
-                <OutputWindow outputDetails={undefined}></OutputWindow>
-                
+            {processing && <p>Processing...</p>}
+                <div className="flex flex-row py-3">
+                <OutputWindow outputDetails={outputDetails}></OutputWindow>
+                {outputDetails && <OutputDetails outputDetails={outputDetails}/>}
+                </div>
                 </div>
         </Split>
         
