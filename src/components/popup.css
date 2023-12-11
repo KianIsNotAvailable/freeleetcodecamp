@@ -26,11 +26,13 @@
 .popup-content .close-btn{
     position: relative;
     bottom: 0px;
-    right: 0px;
-    justify-content: right;
-    
+    right: 0px;  
 
 }
+.popup-title{
+    margin-left: 45%;
+}
+
 .popup-header{
     border: 1px solid white;
     
