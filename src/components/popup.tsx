@@ -16,7 +16,7 @@ const Popup = () => {
  const {completed, setCompleted} = useCompleted();
   const [link, setLink] = useState(false);
   
-
+//the button state lets it know what challenge its on so it can set that challenge as complete
   const handleClick = () =>{
     console.log("clicked")
     closePopup();

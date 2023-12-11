@@ -11,8 +11,8 @@ export default function Problems() {
     const dispatch = useDispatch();
     const buttonState = useSelector((state: RootState) => state.buttonState);
     const { introductionComplete, loopsComplete, enumerateComplete, hashmapsComplete } = useChallenge();
-    const checkedArray = [introductionComplete, loopsComplete, enumerateComplete, hashmapsComplete];
-    const trueChecked = checkedArray.filter(state => state === true);
+    const checkedArray = [introductionComplete, loopsComplete, enumerateComplete, hashmapsComplete]; //counts the completed challenges
+    const trueChecked = checkedArray.filter(state => state === true); //counts the completed challenges
 const [expand, setExpand] = useState(false);
 const [courseTitle, setCourseTitle] = useState('Expand Course');
 const {setCompleted} = useCompleted();

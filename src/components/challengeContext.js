@@ -8,7 +8,7 @@ export const ChallengeProvider = ({ children }) => {
   const [enumerateComplete, setEnumerateComplete] = useState(false);
   const [hashmapsComplete, setHashmapsComplete] = useState(false);
 
-  const introductionCheck = () => setIntroductionComplete(true);
+  const introductionCheck = () => setIntroductionComplete(true); //when they are set as true the checkmark shows
   const loopsCheck = () => setLoopsComplete(true);
   const enumerateCheck = () => setEnumerateComplete(true);
   const hashmapCheck = () => setHashmapsComplete(true);

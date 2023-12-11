@@ -23,7 +23,7 @@ const Code: React.FC<CodeProps> = () => {
 const [outputDetails, setOutputDetails] = useState(null)
     const buttonState = useSelector((state: RootState) => state.buttonState);
     const { openPopup } = usePopup();
-    
+    //api call 
     const handleSubmit = () => {
       if (buttonState === 1){
         openPopup()
@@ -31,9 +31,9 @@ const [outputDetails, setOutputDetails] = useState(null)
         setProcessing(true);
         const formData = {
           language_id: 71,
-          // encode source code in base64
+          
           source_code: btoa(userCode),
-          //stdin: btoa(customInput),
+         
         };
         const options = {
           method: "POST",
@@ -85,7 +85,7 @@ const [outputDetails, setOutputDetails] = useState(null)
           } else {
             setProcessing(false)
             setOutputDetails(response.data)
-            //showSuccessToast(`Compiled Successfully!`)
+            
             console.log('response.data', response.data)
             if (response.data?.status.description === "Accepted" && userCode.includes(challengeAnswers[buttonState].answer)){
               openPopup();
@@ -95,7 +95,7 @@ const [outputDetails, setOutputDetails] = useState(null)
         } catch (err) {
           console.log("err", err);
           setProcessing(false);
-          //showErrorToast(msg);
+          
         }
       };
 
@@ -104,7 +104,7 @@ const [outputDetails, setOutputDetails] = useState(null)
 
 
 
-
+//sets the users code to whatever was typed in the code editor
 const onChange = (value: string) => {
     console.log(value);
     setUserCode(value);
