@@ -53,7 +53,22 @@ const challengeAnswers = {
         boilerPlate: 'nums = [5, 80, 4, 43] \nhashmap = {} \nfor i, n in enumerate(nums): \nhashmap[i] = n \n#Write your code here\n' ,
         answer: '',
         description: <div>
-            
+            <p>A hashmap is a table containing a key and its value.</p>
+            <p>In the previous challenge we used the enumerate() method to print the array values and their correspoding keys.</p>
+            <p>But what if we dont want to print them and want to store them somewhere?</p>
+            <p>thats where we can use a python dictionairy:</p>
+            <p>a python dictionairy looks like this {'{'} England: London, Sweden: Stockholm {'}'} or {'{'} key: value {'}'}</p>
+            <p>A python dictionary can be used as our hashmap</p>
+            <p>in TwoSum, we dont want to add all of the arrays values to the hashmap in the beginning.</p>
+            <p>we want to find the difference between the current iteration of the array and the target number, then only add the interation number to the hashmap if the difference isnt in the hashmap.</p>
+            <p>if the difference is in the hashmap already, that means that there is a value in the hashmap that when added to the current iteration sums to the target.</p>
+            <p>thats a little complicated for now so first lets simplify it</p>
+            <p><code>hashmap = {'{}'}</code> initialize the hashmap as an empty dictionary</p>
+            <p><code>array = [2, 5, 6, 19]</code></p>
+            <p><code>for i, n in enumerate(array):</code></p>
+            <p><code>if n {">"} 4:</code></p>
+            <p><code>hashmap[n] = i</code></p>
+            <p>first we initialize the array as an empty dictionary. Then we have the array. We enumerate the array to get the index and corresponding value. In this example we only add the values greater than 4. <code>hashmap[n] = i</code> sets the current iteration to its index inside the dictionary. it has now been added to the hashmap</p>
         </div>
     },
 }
