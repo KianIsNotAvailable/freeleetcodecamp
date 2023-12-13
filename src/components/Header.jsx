@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div>
         <div className='header flex bg-[#0a0a23] items-center justify-center p-3'>
-            <Link to="/"><img className='h-[56px]' src={Logo}></img></Link> //lets you click the logo to go back home
+            <Link to="/"><img className='h-[56px]' src={Logo}></img></Link> 
         </div>
     </div>
   )

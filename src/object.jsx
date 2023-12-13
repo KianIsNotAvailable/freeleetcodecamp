@@ -38,37 +38,50 @@ const challengeAnswers = {
         description: <div>
             <p>In Python, enumerate() is a built-in function that adds a counter to an iterable, such as a list, tuple, or string. It returns an enumerate object, which contains pairs of index and corresponding element from the iterable. This is particularly useful when you want to iterate over both the elements and their indices in a loop.</p>
             <p>Here's a simple example:</p>
+            <div className="py-4">
             <p><code>fruits = ['apple', 'banana', 'orange']</code></p>
             <p><code>for index, fruit in enumerate(fruits):</code></p>
             <p><code>print(f"Index: {'{'}index{'}'}, Fruit: {'{'}fruit{'}'}")</code></p>
+            </div>
+            <div className="py-4">
             <p>Output:</p>
             <p><code>Index: 0, Fruit: apple</code></p>
             <p><code>Index: 1, Fruit: banana</code></p>
             <p><code>Index: 2, Fruit: orange</code></p>
-            <p>In this example, enumerate() allows us to iterate over the fruits list while simultaneously obtaining both the index and the corresponding fruit. The enumerate() function is often used in situations where you need to keep track of the position of elements in an iterable during iteration.</p>
+            </div>
+            <p className=" pb-3">In this example, enumerate() allows us to iterate over the fruits list while simultaneously obtaining both the index and the corresponding fruit. The enumerate() function is often used in situations where you need to keep track of the position of elements in an iterable during iteration.</p>
+            <div className="border-t border-b border-[#282c34] py-5">
+            <p>Loop through the array <code>nums</code> but remember to use the enumerate function to retrieve the index and value from the array like in the example above. Then print the index, value to the console to see the result</p>    
+            </div>
         </div>
     },
     4: {
         name: 'hashmap',
-        boilerPlate: 'nums = [5, 80, 4, 43] \nhashmap = {} \nfor i, n in enumerate(nums): \nhashmap[i] = n \n#Write your code here\n' ,
-        answer: '',
+        boilerPlate: 'nums = [5, 80, 4, 43] \n#Initialize the hashmap here! \nfor i, n in enumerate(nums): \n#add the i and n to the hashmap here! \n' ,
+        answer: '{}',
         description: <div>
             <p>A hashmap is a table containing a key and its value.</p>
             <p>In the previous challenge we used the enumerate() method to print the array values and their correspoding keys.</p>
             <p>But what if we dont want to print them and want to store them somewhere?</p>
-            <p>thats where we can use a python dictionairy:</p>
-            <p>a python dictionairy looks like this {'{'} England: London, Sweden: Stockholm {'}'} or {'{'} key: value {'}'}</p>
+            <p>Thats where we can use a python dictionairy:</p>
+            <p>A python dictionairy looks like this {'{'} England: London, Sweden: Stockholm {'}'} or {'{'} key: value {'}'}</p>
             <p>A python dictionary can be used as our hashmap</p>
-            <p>in TwoSum, we dont want to add all of the arrays values to the hashmap in the beginning.</p>
+            <p>In TwoSum, we dont want to add all of the arrays values to the hashmap in the beginning.</p>
             <p>we want to find the difference between the current iteration of the array and the target number, then only add the interation number to the hashmap if the difference isnt in the hashmap.</p>
-            <p>if the difference is in the hashmap already, that means that there is a value in the hashmap that when added to the current iteration sums to the target.</p>
-            <p>thats a little complicated for now so first lets simplify it</p>
-            <p><code>hashmap = {'{}'}</code> initialize the hashmap as an empty dictionary</p>
+            <p>If the difference is in the hashmap already, that means that there is a value in the hashmap that when added to the current iteration sums to the target.</p>
+            <p>Thats a little complicated for now so first lets simplify it:</p>
+            <div className="py-4">
             <p><code>array = [2, 5, 6, 19]</code></p>
+            <p><code>hashmap = {'{}'}</code> initialize the hashmap as an empty dictionary</p>
             <p><code>for i, n in enumerate(array):</code></p>
             <p><code>if n {">"} 4:</code></p>
-            <p><code>hashmap[n] = i</code></p>
-            <p>first we initialize the array as an empty dictionary. Then we have the array. We enumerate the array to get the index and corresponding value. In this example we only add the values greater than 4. <code>hashmap[n] = i</code> sets the current iteration to its index inside the dictionary. it has now been added to the hashmap</p>
+            <p><code>hashmap[i] = n</code></p>
+            </div>
+            <p className=" pb-3">First we have the array. Then we initialize the array as an empty dictionary. We enumerate the array to get the index and corresponding value. In this example we only add the values greater than 4. <code>hashmap[i] = n</code> sets i as the index and n as the value inside the dictionary. The hashmap now contains the index and value of the numbers greater than 4 <code>{"{"}1: 5, 2: 6, 3: 19{"}"}</code></p>
+            <div className="border-t border-b border-[#282c34] py-5">
+            <p>In the code editor we have an array called <code>nums</code> and a <code>for</code> loop to loop through the enumerated array to retrive the index and number. </p>
+            <p>On line 2, initialize the hashmap as a dictionary then on line 4 add the index and numbers to the hashmap dictionary. Finally, print the hashmap to the console.</p>
+            </div>
         </div>
     },
 }
