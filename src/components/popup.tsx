@@ -51,7 +51,7 @@ const Popup = () => {
           <div className="popup-content">
             <div className='popup-header flex flex-row justify-between'>
                 <h1 className='popup-title'>Welldone!</h1>
-                <button className='close-btn' onClick={closePopup}>X</button>
+                <button className='close-btn' onClick={closePopup}> X </button>
             </div>
             <div className="popup-body flex flex-col items-center justify-center">
               <img className='h-[200px] w-[200px] py-3' src={Checkmark}></img>
