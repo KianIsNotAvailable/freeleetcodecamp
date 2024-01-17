@@ -33,7 +33,10 @@ jobs:
     - name: Configure AWS CLI
       run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region eu-north-1
 
+    - name: Get short commit SHA
+      run: COMMIT_SHA=$(git rev-parse --short HEAD)
+
     - name: Update Elastic Beanstalk environment
       run: |
-        aws elasticbeanstalk create-application-version --application-name freeleetcodecamp --version-label v2 --source-bundle S3Bucket=freeleetcodecamp,S3Key=Dockerrun.aws.json
-        aws elasticbeanstalk update-environment --application-name freeleetcodecamp --environment-name Freeleetcodecamp-env --version-label v2
+        aws elasticbeanstalk create-application-version --application-name freeleetcodecamp --version-label $COMMIT_SHA --source-bundle S3Bucket=freeleetcodecamp,S3Key=Dockerrun.aws.json
+        aws elasticbeanstalk update-environment --application-name freeleetcodecamp --environment-name Freeleetcodecamp-env --version-label $COMMIT_SHA
