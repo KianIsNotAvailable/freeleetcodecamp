@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "dockerhub_username/your-docker-image-name:latest",
+      "Name": "kianisnotavailable/freeleetcodecamp:latest",
       "Update": "true"
     },
     "Ports": [

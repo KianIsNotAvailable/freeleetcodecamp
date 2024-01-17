@@ -1,45 +1,30 @@
-name: CI/CD Pipeline
+name: Deploy to Elastic Beanstalk
 
 on:
   push:
     branches:
-      - main
+      - main # adjust the branch as needed
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build and push Docker image
-        run: |
-          docker build -t kianisnotavailable/freeleetcodecamp:latest .
-          docker login -u kianisnotavailable -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push kianisnotavailable/freeleetcodecamp:latest
-
   deploy:
     runs-on: ubuntu-latest
 
-    needs: build
-
     steps:
-      - name: Deploy to Elastic Beanstalk
-        uses: einaregilsson/beanstalk-deploy@v16
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: eu-north-1
-          application_name: freeleetcodecamp
-          environment_name: Freeleetcodecamp-env
-          version_label: ${{ github.sha }}
-          file: Dockerrun.aws.json
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      run: docker login -u kianisnotavailable -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and push Docker image
+      run: |
+        docker build -t kianisnotavailable/freeleetcodecamp:latest .
+        docker push kianisnotavailable/freeleetcodecamp:latest
+
+    - name: Configure AWS CLI
+      run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region ${{ secrets.AWS_REGION }}
+
+    - name: Update Elastic Beanstalk environment
+      run: |
+        aws elasticbeanstalk create-application-version --application-name freeleetcodecamp --version-label v2 --source-bundle S3Bucket=freeleetcodecamp,S3Key=Dockerrun.aws.json
+        aws elasticbeanstalk update-environment --application-name freeleetcodecamp --environment-name Freeleetcodecamp-env --version-label v2
