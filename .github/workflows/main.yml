@@ -26,7 +26,7 @@ jobs:
           docker build -t kianisnotavailable/freeleetcodecamp:latest .
           docker login -u kianisnotavailable -p ${{ secrets.DOCKERHUB_TOKEN }}
           docker push kianisnotavailable/freeleetcodecamp:latest
-jobs:
+
   deploy:
     runs-on: ubuntu-latest
 
