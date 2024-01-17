@@ -24,6 +24,10 @@ jobs:
     - name: Build Docker image
       run: docker build -t freeleetcodecamp .
 
+    - name: Display Docker Image Tag
+      run: echo "Docker Image Tag: ${{ github.sha }}"
+
+
   deploy:
     runs-on: ubuntu-latest
 
