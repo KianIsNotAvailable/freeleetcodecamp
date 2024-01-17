@@ -38,5 +38,5 @@ jobs:
 
     - name: Update Elastic Beanstalk environment
       run: |
-        aws elasticbeanstalk create-application-version --application-name freeleetcodecamp --version-label $COMMIT_SHA --source-bundle S3Bucket=freeleetcodecamp,S3Key=Dockerrun.aws.json
+        aws elasticbeanstalk create-application-version --application-name freeleetcodecamp --version-label ${COMMIT_SHA} --source-bundle S3Bucket=freeleetcodecamp,S3Key=Dockerrun.aws.json
         aws elasticbeanstalk update-environment --application-name freeleetcodecamp --environment-name Freeleetcodecamp-env --version-label $COMMIT_SHA
