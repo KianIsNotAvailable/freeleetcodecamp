@@ -119,7 +119,7 @@ const onChange = (value: string) => {
             
             <div className="code-editor w-full overflow-auto">
                 <CodeMirror className="w-full overflow-auto"
-                value={challengeAnswers[buttonState].boilerPlate} //make it so it auto sets it for whatever question youre on
+                value={challengeAnswers[buttonState].boilerPlate} //boilerplate code for each question
                 theme={vscodeDark}
                 onChange={onChange}
                 extensions={[python()]}
@@ -129,7 +129,7 @@ const onChange = (value: string) => {
             
             <div className="w-full px-5 overflow-auto py-3">
             <button onClick={handleSubmit} className='run-btn bg-[#282c34] border border-gray-300 w-full hover:bg-gray-300 hover:text-black p-2'>Run the Code!</button>
-            {processing && <p>Processing...</p>}
+            {processing && <p>Processing...</p>} //displays processing message when run code is clicked before the api call is complete
                 <div className="flex flex-row py-3">
                 <OutputWindow outputDetails={outputDetails}></OutputWindow>
                 {outputDetails && <OutputDetails outputDetails={outputDetails}/>}
