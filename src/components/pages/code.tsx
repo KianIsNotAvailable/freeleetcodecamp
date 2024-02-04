@@ -129,13 +129,14 @@ const onChange = (value: string) => {
             
             <div className="w-full px-5 overflow-auto py-3">
             <button onClick={handleSubmit} className='run-btn bg-[#282c34] border border-gray-300 w-full hover:bg-gray-300 hover:text-black p-2'>Run the Code!</button>
-            {processing && <p>Processing...</p>} //displays processing message when run code is clicked before the api call is complete
+            {processing && <p>Processing...</p>} 
                 <div className="flex flex-row py-3">
                 <OutputWindow outputDetails={outputDetails}></OutputWindow>
                 {outputDetails && <OutputDetails outputDetails={outputDetails}/>}
                 </div>
                 </div>
         </Split>
+        
         
     )
 }
