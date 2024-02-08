@@ -37,7 +37,8 @@ setCompleted(trueChecked.length)
             </div>
             <div className='block-description'>
                 <p>TwoSum is one of the most popular questions on Leetcode.</p>
-                <p>In this course, you'll learn the fundamental concepts required to solve TwoSum. You'll start with loops, then you'll move on to the enumerate method in Python and then Hashmaps before combining them to solve TwoSum!</p>
+                <p>In this course, you'll learn the fundamental concepts required to solve TwoSum. You'll start with loops, then you'll move on to the enumerate method in Python and then Hashmaps.</p>
+                <p>All of the fundamentals to solve TwoSum!</p>
             </div>
             <button className='map-title' onClick={clickHandler}>
                 <img src=''></img>

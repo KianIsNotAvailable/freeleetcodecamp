@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './popup.css'; // Import your CSS file
 import { usePopup } from './popupContext';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,14 +32,18 @@ const Popup = () => {
       
     }else if(buttonState === 4){
       hashmapCheck(true);
-      
+      setLink(true);
     }
     
     //if button state is 1 setIntroductionComplete //true for each one
     dispatch(updateButtonState(buttonState < 4 ? buttonState + 1 : buttonState))
   
   }
-
+  useEffect(() => {
+    if (hashmapCheck){
+      setLink(true);
+    }
+  },[useChallenge]);
 
 
   return (

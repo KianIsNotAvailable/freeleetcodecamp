@@ -4,10 +4,13 @@ const challengeAnswers = {
         boilerPlate: '',
         answer: '',
         description: <div>
-            <p>Welcome to our "Two Sum" LeetCode course! This step-by-step guide is here to help you master the art of solving the Two Sum problem efficiently. </p>
-            <p>This is the introduction to the tutorial.</p>
-            <p>You will learn the fundamentals of solving TwoSum</p>
-            <p>Starting with loops, then the Enumerate method before learning hashMaps and finally ending with solving twosum</p>
+            <p className=" pb-3">Welcome to our "Two Sum" LeetCode course! This step-by-step guide is here to help you master the art of solving the Two Sum problem efficiently. </p>
+            <p className=" pb-3">This is the introduction to the tutorial.</p>
+            <p className=" pb-3">You will learn the fundamentals of solving TwoSum</p>
+            <p className=" pb-3">Starting with loops, then the Enumerate method before learning hashMaps.</p>
+            <p className=" pb-7">Each task will explain the concept and give an example. Then you will be required to write some code using the concept you just learned.</p>
+            <p className=" pb-3">GoodLuck and have fun!</p>
+            <p className=" pb-3">To continue click the "Run the Code!" button.</p>
         </div>
     },
     2: {
@@ -57,7 +60,7 @@ const challengeAnswers = {
     },
     4: {
         name: 'hashmap',
-        boilerPlate: 'nums = [5, 80, 4, 43] \n#Initialize the hashmap here! \nfor i, n in enumerate(nums): \n#add the i and n to the hashmap here! \n' ,
+        boilerPlate: 'nums = [5, 80, 4, 43] \n#Initialize the hashmap here! \n\nfor i, n in enumerate(nums): \n#add the i and n to the hashmap here! \n\nprint(hashmap)' ,
         answer: '{}',
         description: <div>
             <p>A hashmap is a table containing a key and its value.</p>
@@ -80,7 +83,7 @@ const challengeAnswers = {
             <p className=" pb-3">First we have the array. Then we initialize the array as an empty dictionary. We enumerate the array to get the index and corresponding value. In this example we only add the values greater than 4. <code>hashmap[i] = n</code> sets i as the index and n as the value inside the dictionary. The hashmap now contains the index and value of the numbers greater than 4 <code>{"{"}1: 5, 2: 6, 3: 19{"}"}</code></p>
             <div className="border-t border-b border-[#282c34] py-5">
             <p>In the code editor we have an array called <code>nums</code> and a <code>for</code> loop to loop through the enumerated array to retrive the index and number. </p>
-            <p>On line 2, initialize the hashmap as a dictionary then on line 4 add the index and numbers to the hashmap dictionary. Finally, print the hashmap to the console.</p>
+            <p>On line 3, initialize the hashmap as a dictionary then on line 5 add the index and numbers to the hashmap dictionary. Finally, click "Run the Code!" to print the contents of the hashmap to the console.</p>
             </div>
         </div>
     },
