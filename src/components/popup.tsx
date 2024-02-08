@@ -40,10 +40,10 @@ const Popup = () => {
   
   }
   useEffect(() => {
-    if (hashmapCheck){
+    if (hashmapCheck === true){
       setLink(true);
     }
-  },[useChallenge]);
+  },[useChallenge, hashmapCheck]);
 
 
   return (
